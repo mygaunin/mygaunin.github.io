@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mark-yves Gaunin Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -10,6 +11,12 @@
     <div class="container">
         <div class="nav-wrapper">
             <div class="left-side">
+                <div class="brand">
+                    <div>MARK-YVES GAUNIN</div>
+                </div>
+            </div>
+
+            <div class="right-side">
                 <div class="nav-link-wrapper active-nav-link">
                     <a href="index.html">Home</a>
                 </div>
@@ -18,15 +25,127 @@
                     <a href="about.html">About</a>
                 </div>
             </div>
-
-            <div class="right-side">
-                <div class="brand">
-                    <div>MARK-YVES GAUNIN</div>
-                </div>
-            </div>
+        </div>
+        <h1>Scroll Down &#8681;</h1>
+        <div class="content-wrapper">
+            <canvas id="scene" style="width: 100%; aspect-ratio: 1/4; margin-top: -400vh;"></canvas>
+        </div>
+        <div class="text">
+            <p>Hello</p>
+   
         </div>
     </div>
 </body>
 <script>
+    // Get the canvas element from the DOM
+    const canvas = document.querySelector('#scene');
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+      
+    // Store the 2D context
+    const ctx = canvas.getContext('2d');
+      
+    // VARIABLES & CONSTANTS
+    let width = canvas.clientWidth;// Width of the canvas
+    let height = canvas.clientHeight;// Height of the canvas
+    let rotation = 0;// Rotation of the globe
+    let dots = [];// Every dots in an array
+      
+    const DOTS_AMOUNT = 1000;// Amount of dots on the screen 
+    const DOT_RADIUS = 4; // Radius of the dots
+    let GLOBE_RADIUS = width * 0.7; // Radius of the globe
+    let GLOBE_CENTER_Z = -GLOBE_RADIUS; // Z value of the globe center
+    let PROJECTION_CENTER_X = width / 2; // X center of the canvas HTML
+    let PROJECTION_CENTER_Y = height / 2; // Y center of the canvas HTML
+    let FIELD_OF_VIEW = width * 0.8;
+      
+    class Dot {
+        constructor(x, y, z) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+                      
+            this.xProject = 0;
+            this.yProject = 0;
+            this.sizeProjection = 0;
+        }
+      
+        //creating the project & converting 3D position into the 2D canvas
+        project(sin, cos) {
+            const rotX = cos * this.x + sin * (this.z - GLOBE_CENTER_Z);
+            const rotZ = -sin * this.x + cos * (this.z - GLOBE_CENTER_Z) + GLOBE_CENTER_Z;
+            this.sizeProjection = FIELD_OF_VIEW / (FIELD_OF_VIEW - rotZ);
+            this.xProject = (rotX * this.sizeProjection) + PROJECTION_CENTER_X;
+            this.yProject = (this.y * this.sizeProjection) + PROJECTION_CENTER_Y;
+        }
+      
+        // Drawing the dot on the canvas
+        draw(sin, cos) {
+            this.project(sin, cos);
+            ctx.beginPath();
+            ctx.arc(this.xProject, this.yProject, DOT_RADIUS * this.sizeProjection, 10, Math.PI * 10);
+            ctx.fillStyle = "white";
+            ctx.fill();
+        }
+    }
+      
+    function createDots() {
+        dots.length = 0; // Empty the array of dots
+        // Create a new dot based on the amount needed
+        for (let i = 0; i < DOTS_AMOUNT; i++) {
+            const theta = Math.random() * 2 * Math.PI; 
+            const phi = Math.acos((Math.random() * 2) - 1);
+            // Calculate the [x, y, z] coordinates of the dot along the globe
+            const x = GLOBE_RADIUS * Math.sin(phi) * Math.cos(theta);
+            const y = GLOBE_RADIUS * Math.sin(phi) * Math.sin(theta);
+            const z = (GLOBE_RADIUS * Math.cos(phi)) + GLOBE_CENTER_Z;
+            dots.push(new Dot(x, y, z));
+        }
+    }  
+      
+    // RENDERING
+    function render(a) {
+        ctx.clearRect(0, 0, width, height);// Clear the scene
+        rotation = a * 0.0004;// Increase the globe rotation
+                    
+        const sineRotation = Math.sin(rotation); // Sine of the rotation
+        const cosineRotation = Math.cos(rotation); // Cosine of the rotation
+      
+        // Loop through the dots array and draw every dot
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].draw(sineRotation, cosineRotation);
+        }
+    }
+      
+    // Function called after the user resized its screen
+    function afterResize () {
+        width = canvas.offsetWidth;
+        height = canvas.offsetHeight;
+        canvas.width = width;
+        canvas.height = height;
+        GLOBE_RADIUS = width * 0.7;
+        GLOBE_CENTER_Z = -GLOBE_RADIUS;
+        PROJECTION_CENTER_X = width / 2;
+        //PROJECTION_CENTER_Y = height / 2;
+        FIELD_OF_VIEW = width * 0.8;
+                    
+        createDots(); // Reset all dots
+    } 
+      
+    let resizeTimeout;  // Variable used to store a timeout 
+    function onResize () {
+        // Clear the timeout variable
+        resizeTimeout = window.clearTimeout(resizeTimeout);
+        // Store a new timeout to avoid calling afterResize for every resize event
+        resizeTimeout = window.setTimeout(afterResize, 5000);
+    }
+    window.addEventListener('resize', onResize);
+    createDots();// Populate the dots array with random dots
+    window.requestAnimationFrame(render); // Render / Display the scene  
+    window.addEventListener('scroll', function(){
+        let value = window.scrollY;
+        PROJECTION_CENTER_Y = value * 0.5 + (height / 2);
+        window.requestAnimationFrame(render); // Render / Display the scene  
+    })
 </script>
 </html>

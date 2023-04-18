@@ -2,6 +2,7 @@
 body {
     font-family: "Lato", sans-serif;
     margin: 0px;
+    background-color: black;
 }
 
 .container {
@@ -12,15 +13,17 @@ body {
 /* Nav styles */
 .nav-wrapper {
     display: flex;
+    overflow: hidden;
     justify-content: space-between;
-    padding: 38px;
+    padding: 15px;
+    background-color: white !important;
 }
 
-.left-side {
+.right-side {
     display: flex;
 }
 
-.nav-wrapper > .left-side > div {
+.nav-wrapper > .right-side > div {
     margin-right: 20px;
     font-size: 0.9em;
     text-transform: uppercase;
@@ -53,6 +56,46 @@ body {
 .active-nav-link a {
     color: black !important;
 }
+
+/* Content styles */
+.container h1 {
+    padding: 1vh;
+    text-align: center;
+    color: white;
+}
+
+.content-wrapper {
+    display: flex;
+    margin: 0;
+    /*align-items: center;*/
+    justify-content: top;
+    height: 600vh;
+    overflow: hidden;
+}
+
+.canvas {
+    width: 98vmin;
+    height: 98vmin;
+}
+
+.text {
+    color: white;
+    padding-top: 1000em;
+    padding-bottom:100em;
+}
+
+/*.earth-image-wrapper {
+    position: relative;
+}
+
+.earth-image-background {
+    height: 350px;
+    width: auto;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px;
+}*/
 
 /* About page */
 .two-column-wrapper {
