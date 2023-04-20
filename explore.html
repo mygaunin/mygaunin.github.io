@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Mark-yves Gaunin - Explore Page</title>
+</head>
+<body>
+<section class="showcase">
+    <header>
+        <h2 class="logo">MARK-YVES GAUNIN</h2>
+        <div class="toggle"></div>
+    </header>
+    <div class="content-wrapper">
+        <div class="portfolio-items-wrapper">
+            
+            <div class="portfolio-item-wrapper">
+                <div class="portfolio-img-background" style="background-image:url(images/profile.jpg)"></div>  
+                <div class="img-text-wrapper">
+                    <div class="subtitle">Learn more about me</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <ul class="social">
+        <li><a href="https://www.linkedin.com/in/mark-yves-gaunin-b3881a149/"><img src="images/linkedin.png"></a></li>
+        <li><a href="https://twitter.com/sharky_marky17"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+        <li><a href="https://www.instagram.com/sharky_marky17/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+      </ul>
+    </section>
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="">Research</a></li>
+        <li><a href="#">Interests</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+</body>
+<script>
+    const menuToggle = document.querySelector('.toggle');
+    const showcase = document.querySelector('.showcase');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active');
+    })
+
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper')
+
+    portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseover', () => {
+            portfolioItem.childNodes[1].classList.add('img-darken');
+        })
+
+        portfolioItem.addEventListener('mouseout', () => {
+            portfolioItem.childNodes[1].classList.remove('img-darken');
+        })
+    })
+</script>
+</html>
