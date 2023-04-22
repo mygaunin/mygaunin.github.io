@@ -1,47 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>About</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <title>Mark-yves Gaunin - About Page</title>
 </head>
 <body>
-    <div class="container">
-        <div class="nav-wrapper">
-            <div class="left-side">
-                <div class="brand">
-                    <div>MARK-YVES GAUNIN</div>
-                </div>
-            </div>
-
-            <div class="right-side">
-                <div class="nav-link-wrapper">
-                    <a href="index.html">Home</a>
-                </div>
-
-                <div class="nav-link-wrapper active-nav-link">
-                    <a href="about.html">About</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-wrapper">
-            <div class="two-column-wrapper">
-                <div class="profile-image-wrapper">
-                    <img src="images/profile.jpg">
-                </div>
-
-                <div class="profile-content-wrapper">
-                    <h1>Hi, thanks for visiting my site.</h1>
-
-                    <p>This is paragraph 1.</p>
-
-                    <p>This is paragraph 2.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
+  <section class="showcase">
+    <header>
+      <h2 class="logo">MARK-YVES GAUNIN</h2>
+      <div class="toggle"></div>
+    </header>
+    <div class="overlay"></div>
+    <ul class="social">
+      <li><a href="https://www.linkedin.com/in/mark-yves-gaunin-b3881a149/"><img src="images/linkedin.png"></a></li>
+      <li><a href="https://twitter.com/sharky_marky17"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+      <li><a href="https://www.instagram.com/sharky_marky17/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+    </ul>
+  </section>
+  <div class="menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="interests.html">Interests</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 </body>
+<script>
+    const menuToggle = document.querySelector('.toggle');
+    const showcase = document.querySelector('.showcase');
+
+    menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    showcase.classList.toggle('active');
+    })
+</script>
 </html>
