@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Mark-yves Gaunin - Contact Page</title>
-</head>
-<body>
-  <section class="showcase">
-    <header>
-      <h2 class="logo">MARK-YVES GAUNIN</h2>
-      <div class="toggle"></div>
-    </header>
-    <div class="overlay"></div>
-    <ul class="social">
-      <li><a href="https://www.linkedin.com/in/mark-yves-gaunin-b3881a149/"><img src="images/linkedin.png"></a></li>
-      <li><a href="https://twitter.com/sharky_marky17"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
-      <li><a href="https://www.instagram.com/sharky_marky17/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
-    </ul>
-  </section>
-  <div class="menu">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="interests.html">Interests</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</body>
-<script>
-    const menuToggle = document.querySelector('.toggle');
-    const showcase = document.querySelector('.showcase');
-
-    menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    showcase.classList.toggle('active');
-    })
-</script>
-</html>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Mark-yves Gaunin - Contact Page</title>
+  </head>
+  <body>
+    <section class="showcase">
+      <header>
+        <h2 class="logo">MARK-YVES GAUNIN</h2>
+        <div class="toggle"></div>
+      </header>
+      <div class="overlay"></div>
+      <ul class="social">
+        <li><a href="https://www.linkedin.com/in/mark-yves-gaunin/"><img src="images/linkedin.png"></a></li>
+        <li><a href="https://twitter.com/MarkyvesGaunin"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+        <li><a href="https://www.instagram.com/markyvesgaunin/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+      </ul>
+      <form accept-charset="UTF-8" action="https://getform.io/f/409ea3c1-a1fc-437c-a31e-bda75d79698e" method="POST" enctype="multipart/form-data"  target="_blank" id="wpform">
+        <h1 class="title">Contact Me</h1>
+        <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+        <input name="email" type="text" class="feedback-input" placeholder="Email" />
+        <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+        <input type="submit" value="SUBMIT"/>
+      </form>
+    </section>
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="interests.html">Interests</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+      const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.showcase');
+  
+      menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      showcase.classList.toggle('active');
+      })
+  </script>
+  </html>-
