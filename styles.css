@@ -226,36 +226,36 @@ header a
 }
 .img1
 {
-  width: fit-content;
-  height: 50vh;
+  width: 40vh;
+  height: auto;
   max-width: 100%;
   filter: brightness(50%);
 }
 .img2
 {
-  width: 50vh;
-  height: fit-content;
+  width: 60vh;
+  height: auto;
   max-width: 100%;
   filter: brightness(70%);
 }
 .img3
 {
   width: 50vh;
-  height: fit-content;
+  height: auto;
   max-width: 100%;
   filter: brightness(50%);
 }
 .img4
 {
   width: 60vh;
-  height: fit-content;
+  height: auto;
   max-width: 100%;
   filter: brightness(60%);
 }
 .img5
 {
   width: 70vh;
-  height: fit-content;
+  height: auto;
   max-width: 100%;
   filter: brightness(50%);
 }
