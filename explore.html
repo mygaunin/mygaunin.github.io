@@ -10,7 +10,7 @@
 <body>
   <section class="showcase">
     <header>
-      <h2 class="logo">MARK-YVES GAUNIN</h2>
+      <a href="index.html"><h2 class="logo">MARK-YVES GAUNIN</h2></a>
       <div class="toggle"></div>
     </header>
     <div class="overlay"></div>
@@ -19,6 +19,28 @@
       <li><a href="https://twitter.com/MarkyvesGaunin"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
       <li><a href="https://www.instagram.com/markyvesgaunin/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
     </ul>
+    <u2 class="portfolio">
+      <div class="container">
+        <li><a href="about.html"><img class="img1" src="images/profile.jpg" alt="About Me"></a></li>
+        <a href="about.html"><div class="centered-low">About Me</div></a>
+      </div>
+      <div class="container">
+        <li><a href="research.html"><img class="img2" src="images/research.jpg" alt="Research"></a></li>
+        <a href="research.html"><div class="centered">Research</div></a>
+      </div>
+      <div class="container">
+        <li><a href="interests.html"><img class="img3" src="images/interests.jpg" alt="Interests"></a></li>
+        <a href="interests.html"><div class="centered">Interests</div></a>
+      </div>
+      <div class="container">
+        <li><a href="news.html"><img class="img4" src="images/news.jpg" alt="News"></a></li>
+        <a href="news.html"><div class="centered-low">News</div></a>
+      </div>
+      <div class="container">
+        <li><a href="contact.html"><img class="img5" src="images/contact.png" alt="Contact Me"></a></li>
+        <a href="contact.html"><div class="centered">Contact Me</div></a>
+      </div>
+    </u2>
   </section>
   <div class="menu">
     <ul>
@@ -39,5 +61,17 @@
     menuToggle.classList.toggle('active');
     showcase.classList.toggle('active');
     })
+    
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper')
+
+    portfolioItems.forEach(portfolioItem => {
+    portfolioItem.addEventListener('mouseover', () => {
+        portfolioItem.childNodes[1].classList.add('img-darken');
+    })
+
+    portfolioItem.addEventListener('mouseout', () => {
+        portfolioItem.childNodes[1].classList.remove('img-darken');
+    })
+})
 </script>
 </html>

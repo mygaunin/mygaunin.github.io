@@ -24,6 +24,10 @@ header .logo
   text-transform: uppercase;
   cursor: pointer;
 }
+header a 
+{
+  text-decoration: none;
+}
 .toggle
 {
   position: relative;
@@ -202,7 +206,97 @@ header .logo
   }
 }
 
+
 /* Explore Page */
+.portfolio
+{
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5vh;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+}
+.portfolio li
+{
+  list-style: none;
+}
+.img1
+{
+  width: fit-content;
+  height: 50vh;
+  max-width: 100%;
+  filter: brightness(50%);
+}
+.img2
+{
+  width: 50vh;
+  height: fit-content;
+  max-width: 100%;
+  filter: brightness(70%);
+}
+.img3
+{
+  width: 50vh;
+  height: fit-content;
+  max-width: 100%;
+  filter: brightness(50%);
+}
+.img4
+{
+  width: 60vh;
+  height: fit-content;
+  max-width: 100%;
+  filter: brightness(60%);
+}
+.img5
+{
+  width: 70vh;
+  height: fit-content;
+  max-width: 100%;
+  filter: brightness(50%);
+}
+.container {
+  position: relative;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  color: #87dfe5;
+}
+.centered-low {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  color: #87dfe5;
+}
+.portfolio li a
+{
+  display: inline-block;
+  margin: 0.5vh;
+  transition: 0.5s;
+}
+.portfolio li a:hover
+{
+  filter: brightness(50%);
+}
+
+
+
+/* About page */
 
 
 /* Contact Page */
