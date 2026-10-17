@@ -1,52 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Mark-yves Gaunin - Home Page</title>
+    <title>Mark-Yves Gaunin | Ph.D. Candidate & Systems Engineer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b0f19',
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <!-- Video Source -->
-  <!-- https://www.pexels.com/search/videos/earth%20space/ -->
-  <section class="showcase">
-    <header>
-      <h2 class="logo">MARK-YVES GAUNIN</h2>
-      <div class="toggle"></div>
-    </header>
-    <video src="images/background.mp4" muted loop autoplay playsinline></video>
-    <div class="overlay"></div>
-    <div class="text">
-      <h2>HELLO WORLD!</h2> 
-      <h3></h3>
-      <p>Welcome to my personal website</p>
-      <a href="explore.html">Explore</a>
-    </div>
-    <ul class="social">
-      <li><a href="https://www.linkedin.com/in/mark-yves-gaunin/"><img src="images/linkedin.png"></a></li>
-      <li><a href="https://twitter.com/MarkyvesGaunin"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
-      <li><a href="https://www.instagram.com/markyvesgaunin/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
-    </ul>
-  </section>
-  <div class="menu">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="interests.html">Interests</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</body>
-<script>
-    const menuToggle = document.querySelector('.toggle');
-    const showcase = document.querySelector('.showcase');
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-accent selection:text-white">
 
-    menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    showcase.classList.toggle('active');
-    })
-</script>
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/70 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span> Mark-Yves Gaunin
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#projects" class="hover:text-accent transition">Projects</a>
+                <a href="publications.html" class="hover:text-accent transition">Publications</a>
+                <a href="gallery.html" class="hover:text-accent transition">Lab Gallery</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:mygaunin@gmail.com" class="text-slate-300 hover:text-accent transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-github text-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Video -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40 scale-105">
+                <source src="assets/background-video.mp4" type="video/mp4">
+            </video>
+            <!-- Dark Overlay Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/40"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center mt-12">
+            <span class="inline-block font-mono py-1.5 px-4 rounded-full bg-blue-500/10 text-blue-400 text-sm font-semibold mb-6 border border-blue-500/20 backdrop-blur-sm shadow-lg shadow-blue-500/5">
+                Welcome to my personal site
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-white font-mono">
+                Hello World.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                I'm Mark-Yves Gaunin — a Ph.D. researcher at the University of Maryland & NIST exploring atomic-scale quantum devices.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="bg-accent hover:bg-blue-600 text-white font-medium px-8 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition flex items-center gap-2">
+                    View Projects <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+                <a href="publications.html" class="bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-medium px-8 py-3.5 rounded-xl backdrop-blur-md transition flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-xs text-accent"></i> Read Publications
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Grid -->
+    <section id="projects" class="py-28 max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+            <div>
+                <span class="text-xs font-bold text-accent uppercase tracking-widest">Case Studies</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-1">Featured Works</h2>
+            </div>
+            <p class="text-slate-400 text-sm max-w-md mt-4 md:mt-0">
+                Deep dives into atomic-scale research, machine learning automation, and satellite software-defined radio development.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Project Card 1: Atomic Scale (PhD/NIST) -->
+            <div class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-slate-700 transition flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="h-48 overflow-hidden relative bg-slate-800">
+                        <img src="assets/project-quantum.png" alt="Quantum Devices" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-blue-400 border border-slate-700">
+                            Ph.D. / NIST
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-mono text-accent uppercase">Engineering at the atomic scale</span>
+                        <h3 class="text-xl font-bold text-white group-hover:text-accent transition mt-1">High-Frequency Oersted Lines for Spin Manipulation</h3>
+                        <p class="text-slate-400 text-sm mt-3 line-clamp-3">
+                            Designing and fabricating 40 GHz microwave delivery structures for single-dopant quantum devices in silicon.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <a href="projects/quantum-devices.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-blue-400 transition">
+                        Read Case Study <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project Card 2: STM Automation -->
+            <div class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-slate-700 transition flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="h-48 overflow-hidden relative bg-slate-800">
+                        <img src="assets/project-stm.jpg" alt="STM Machine Learning Automation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-purple-400 border border-slate-700">
+                            CV & Machine Learning
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-mono text-purple-400 uppercase">Autonomous Fabrication</span>
+                        <h3 class="text-xl font-bold text-white group-hover:text-accent transition mt-1">Automated STM Hydrogen Lithography</h3>
+                        <p class="text-slate-400 text-sm mt-3 line-clamp-3">
+                            Developing computer vision and ML algorithms to automate atom-by-atom fabrication using scanning tunneling microscopy.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <a href="projects/stm-automation.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-blue-400 transition">
+                        Read Case Study <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project Card 3: Aerospace / Space (Voyager Tech) -->
+            <div class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-slate-700 transition flex flex-col justify-between shadow-xl">
+                <div>
+                    <div class="h-48 overflow-hidden relative bg-slate-800">
+                        <img src="assets/project-sdr.jpg" alt="Nanocom SDRs" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-emerald-400 border border-slate-700">
+                            Aerospace / Space
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-mono text-emerald-400 uppercase">From hardware design to orbital deployment</span>
+                        <h3 class="text-xl font-bold text-white group-hover:text-accent transition mt-1">Modular Nanocom Software Defined Radios (SDRs)</h3>
+                        <p class="text-slate-400 text-sm mt-3 line-clamp-3">
+                            Architecting flight-ready satellite SDR firmware, Zynq FPGA HDL, and automated physical testing for space missions.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <a href="projects/nanocom-sdr.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-blue-400 transition">
+                        Read Case Study <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p>© 2026 Mark-Yves Gaunin. Built for GitHub Pages.</p>
+            <div class="flex items-center space-x-6 text-lg">
+                <a href="mailto:mygaunin@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>

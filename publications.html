@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications & Presentations | Mark-Yves Gaunin</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b0f19',
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-accent selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/70 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span> Mark-Yves Gaunin
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="index.html#projects" class="hover:text-accent transition">Projects</a>
+                <a href="publications.html" class="text-accent transition">Publications</a>
+                <a href="gallery.html" class="hover:text-accent transition">Lab Gallery</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:mygaunin@gmail.com" class="text-slate-300 hover:text-accent transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-github text-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 max-w-4xl mx-auto px-6">
+        
+        <!-- Page Header -->
+        <div class="mb-16">
+            <span class="text-xs font-bold text-accent uppercase tracking-widest font-mono">Academic Record</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mt-2">Publications & Presentations</h1>
+            <p class="text-slate-400 text-base mt-4">
+                Peer-reviewed journal articles, pre-prints in preparation, conference talks, and poster presentations spanning quantum device physics, machine learning for nanofabrication, and plasmonics.
+            </p>
+        </div>
+
+        <!-- Section 1: Research Papers -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-slate-800 pb-3">
+                <i class="fa-solid fa-book text-accent text-lg"></i> Research Papers
+            </h2>
+
+            <div class="space-y-6">
+                <!-- JVST B Editor's Pick -->
+                <div class="p-6 bg-slate-950 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden grid md:grid-cols-3 gap-6 items-center">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-accent"></div>
+                    <div class="md:col-span-2">
+                        <span class="inline-block py-1 px-2.5 rounded bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-500/20">Editor's Pick</span>
+                        <h3 class="text-lg font-bold text-white">Design, Modelling, and Fabrication of High Frequency Oersted Lines for Electron Spin Manipulation in Silicon Based Quantum Devices</h3>
+                        <p class="text-sm text-slate-400 mt-2">
+                            Journal of Vacuum Science & Technology (JVST) B, November 2024, Volume 42, Issue 6
+                        </p>
+                        <div class="mt-4">
+                            <a href="https://doi.org/10.1116/6.0004051" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-blue-400 transition bg-blue-500/10 px-3 py-1.5 rounded-lg border border-blue-500/20">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> DOI: 10.1116/6.0004051
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Optional Publication Image Thumbnail -->
+                    <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-900 h-36">
+                        <img src="assets/jvst-thumb.png" alt="JVST B Paper Figure" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- npj Quantum Information -->
+                <div class="p-6 bg-slate-950 rounded-2xl border border-slate-800 shadow-xl">
+                    <span class="inline-block py-1 px-2.5 rounded bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3 border border-blue-500/20">Under Peer Review</span>
+                    <h3 class="text-lg font-bold text-white">RF reflectometry measurements of charge configuration in a Si:P quantum dot array</h3>
+                    <p class="text-sm text-slate-400 mt-2">
+                        npj Quantum Information (Coauthor)
+                    </p>
+                </div>
+
+                <!-- Pre-prints / In Preparation -->
+                <div class="p-6 bg-slate-950 rounded-2xl border border-slate-800 shadow-xl">
+                    <span class="inline-block py-1 px-2.5 rounded bg-slate-800 text-slate-300 text-xs font-bold uppercase tracking-wider mb-3 border border-slate-700">In Preparation / Upcoming</span>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angles-right text-accent mt-1 text-xs"></i>
+                            <div><strong>Automating Lithography for STM Based Donor Placement in Silicon</strong> (Author)</div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angles-right text-accent mt-1 text-xs"></i>
+                            <div><strong>Top-Gate Integration for Improved Tunability in Atomically Precise Silicon Quantum Devices</strong> (Equally Contributing Author)</div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angles-right text-accent mt-1 text-xs"></i>
+                            <div><strong>Generation of Extreme-High Vacuum using Liquid-Nitrogen reservoir-based cryo-trap for ultra-clean background in Silicon growth chamber</strong> (Equally Contributing Author)</div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angles-right text-accent mt-1 text-xs"></i>
+                            <div><strong>Optimizing RF-reflectometry measurements for high-impedance silicon quantum devices</strong> (Coauthor, Upcoming)</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Conference Presentations -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-slate-800 pb-3">
+                <i class="fa-solid fa-microphone text-accent text-lg"></i> Conference Presentations & Talks
+            </h2>
+
+            <div class="space-y-4">
+                <div class="p-5 bg-slate-950 rounded-xl border border-slate-800">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <h3 class="font-bold text-white">International Conference on Electron, Ion, and Photon Beam Technology and Nanofabrication (EIPBN)</h3>
+                        <span class="text-xs font-mono text-accent bg-blue-500/10 px-2.5 py-1 rounded w-fit border border-blue-500/20">2026 Speaker</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mt-2 font-medium">Optimizing Electrical Contacts to Atomically Precise Quantum Devices</p>
+                    <div class="mt-3">
+                        <a href="https://eipbn.org/wp-content/uploads/2026/05/EIPBN_2026_Program-V5.pdf" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 w-fit">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View EIPBN Program
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-5 bg-slate-950 rounded-xl border border-slate-800">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <h3 class="font-bold text-white">EIPBN</h3>
+                        <span class="text-xs font-mono text-accent bg-blue-500/10 px-2.5 py-1 rounded w-fit border border-blue-500/20">2025 Speaker</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mt-2 font-medium">Machine Learning Algorithms to Automate Atomically Precise Fabrication Using a Scanning Tunneling Microscope</p>
+                </div>
+
+                <div class="p-5 bg-slate-950 rounded-xl border border-slate-800">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <h3 class="font-bold text-white">American Physical Society (APS) Global Physics Summit</h3>
+                        <span class="text-xs font-mono text-accent bg-blue-500/10 px-2.5 py-1 rounded w-fit border border-blue-500/20">2025 Speaker</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mt-2 font-medium">Characterizing the Electromagnetic Field Distribution of High Frequency Electron Spin Resonance Lines</p>
+                    <div class="mt-3">
+                        <a href="https://summit.aps.org/smt/2025/events/MAR-B19/13" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 w-fit">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View APS Event Page
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-5 bg-slate-950 rounded-xl border border-slate-800">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <h3 class="font-bold text-white">2019 NIST SURF Colloquium</h3>
+                        <span class="text-xs font-mono text-slate-400 bg-slate-800 px-2.5 py-1 rounded w-fit">2019 Speaker</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mt-2 font-medium">Atomic-Scale Quantum Plasmonics (pg. 93)</p>
+                    <div class="mt-3">
+                        <a href="https://www.nist.gov/system/files/documents/2019/07/30/2019_surf_abstract_book.pdf" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 w-fit">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Abstract Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-3 italic">+ Many more co-authored presentations.</p>
+        </section>
+
+        <!-- Section 3: Poster Presentations -->
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-slate-800 pb-3">
+                <i class="fa-solid fa-image text-accent text-lg"></i> Poster Presentations
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono text-purple-400">AI@NIST Day 2026</span>
+                        <h3 class="font-bold text-white text-sm mt-1">AI Enabled Automation of Atom-by-Atom Fabrication</h3>
+                    </div>
+                    <span class="text-xs text-slate-500 mt-3">(Author)</span>
+                </div>
+
+                <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono text-blue-400">Silicon Quantum Electronics Workshop 2025</span>
+                        <h3 class="font-bold text-white text-sm mt-1">Automating the STM Fabrication of Silicon Based Quantum Devices Using Machine Learning and Computer Vision</h3>
+                    </div>
+                    <span class="text-xs text-slate-500 mt-3">(Author)</span>
+                </div>
+
+                <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono text-emerald-400">32nd Annual Sigma Xi Early-Career Poster Presentation (ECPP)</span>
+                        <h3 class="font-bold text-white text-sm mt-1">Fabricating with Atomic Precision using Artificial Intelligence</h3>
+                    </div>
+                    <span class="text-xs text-slate-500 mt-3">(Author)</span>
+                </div>
+
+                <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono text-slate-400">EIPBN 2024</span>
+                        <h3 class="font-bold text-white text-sm mt-1">Fabrication of Donor-based Quantum Devices in Silicon using Scanning Tunneling Microscopy</h3>
+                    </div>
+                    <span class="text-xs text-slate-500 mt-3">(Author)</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-3 italic">+ Many more co-authored poster presentations.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p>© 2026 Mark-Yves Gaunin. Built for GitHub Pages.</p>
+            <div class="flex items-center space-x-6 text-lg">
+                <a href="mailto:mygaunin@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
