@@ -28,7 +28,7 @@
             <a href="../index.html" class="font-bold text-sm text-slate-300 hover:text-white transition flex items-center gap-2">
                 <i class="fa-solid fa-arrow-left"></i> Back to Home
             </a>
-            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest font-mono">Aerospace Case Study</span>
+            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest font-mono">Aerospace Experience (Feb. 2021 – March 2024)</span>
         </div>
     </header>
 
@@ -42,9 +42,20 @@
         <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
             Modular Nanocom Software Defined Radios (SDRs)
         </h1>
-        <p class="text-lg text-slate-300 mb-10 font-light leading-relaxed">
+        <p class="text-lg text-slate-300 mb-8 font-light leading-relaxed">
             Engineered and tested flight-ready software-defined radios at Voyager Technologies (formerly Space Micro Inc.), contributing to modular architectures that secured over $10 million in new defense and commercial space contracts.
         </p>
+
+        <!-- Featured SDR Hardware Image (Placed near top) -->
+        <div class="mb-12 bg-slate-900 p-3 rounded-2xl border border-slate-800 shadow-2xl">
+            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-72 md:h-96">
+                <!-- Replace 'assets/nanocom-sdr-hardware.jpg' with your actual SDR photo file path -->
+                <img src="../assets/nanocom-sdr-hardware.jpg" alt="Modular Nanocom Software Defined Radio" class="w-full h-full object-cover">
+            </div>
+            <p class="text-xs text-slate-400 mt-3 text-center font-medium italic">
+                Modular Nanocom Software Defined Radio (SDR) hardware developed for small satellite architectures.
+            </p>
+        </div>
 
         <!-- Launch Video Link Card -->
         <div class="mb-16 bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-2xl">
@@ -57,16 +68,14 @@
             
             <!-- Clickable Video Preview Card -->
             <a href="https://www.youtube.com/watch?v=vnnUoZ66ihg&t=287s" target="_blank" class="group relative block aspect-video w-full rounded-xl overflow-hidden border border-slate-700 bg-slate-950 shadow-lg">
-                <!-- Thumbnail background -->
                 <img src="https://img.youtube.com/vi/vnnUoZ66ihg/hqdefault.jpg" alt="SpaceX Launch Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-70">
                 
-                <!-- Dark Overlay & Play Button -->
                 <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition flex flex-col items-center justify-center">
                     <div class="w-16 h-16 rounded-full bg-accent text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-play text-xl ml-1"></i>
                     </div>
                     <span class="mt-3 text-sm font-semibold text-white bg-slate-900/80 px-4 py-1.5 rounded-full border border-slate-700 backdrop-blur-md">
-                        Watch Launch on YouTube (At 4:47 mark) <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
+                        Watch Launch on YouTube <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
                     </span>
                 </div>
             </a>
@@ -79,41 +88,97 @@
         <!-- Technical Breakdown Sections -->
         <div class="space-y-12 text-slate-300 leading-relaxed text-base">
             
-            <section class="p-6 bg-slate-900 rounded-2xl border border-slate-800">
-                <h2 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+            <!-- Firmware & Hardware Section -->
+            <section class="space-y-8">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3 border-b border-slate-800 pb-3">
                     <i class="fa-solid fa-microchip text-accent"></i> Firmware & Embedded Architecture
                 </h2>
-                <p class="mb-4">
-                    Reliability in orbital environments requires rigorous low-level hardware-software codesign. My responsibilities spanned across multiple layers of the embedded stack:
-                </p>
-                <ul class="list-disc list-inside space-y-2 text-sm text-slate-300">
-                    <li>Developed custom software drivers for <strong>TI MSP430-family microcontroller chips</strong>.</li>
-                    <li>Wrote high-speed HDL firmware for <strong>Xilinx Zynq FPGAs</strong> to handle real-time signal processing and telemetry.</li>
-                    <li>Coded low-level Linux drivers in <strong>C</strong>, interfacing directly with hardware peripherals via <strong>UART, JTAG, and Spy-Bi-Wire (SBW)</strong> protocols.</li>
-                </ul>
+
+                <!-- Subsection: TI MSP430 -->
+                <div class="grid md:grid-cols-2 gap-6 bg-slate-900 p-6 rounded-2xl border border-slate-800 items-center">
+                    <div class="order-2 md:order-1 space-y-3">
+                        <span class="text-xs font-mono text-accent uppercase tracking-wider">Low-Power Microcontrollers</span>
+                        <h3 class="text-xl font-bold text-white">TI MSP430 Software Driver Development</h3>
+                        <p class="text-sm text-slate-300">
+                            Developed robust software drivers for the TI MSP430 microcontroller family to manage critical housekeeping, power management states, and subsystem telemetry. Utilized low-level communication protocols including <strong>UART</strong> and <strong>Spy-Bi-Wire (SBW)</strong> for in-system programming and debugging.
+                        </p>
+                    </div>
+                    <div class="order-1 md:order-2 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-48">
+                        <img src="../assets/msp430-hardware.jpg" alt="TI MSP430 Microcontroller Setup" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Subsection: Xilinx Zynq FPGA -->
+                <div class="grid md:grid-cols-2 gap-6 bg-slate-900 p-6 rounded-2xl border border-slate-800 items-center">
+                    <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-48">
+                        <img src="../assets/fpga-architecture.jpg" alt="Xilinx Zynq FPGA Architecture" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-3">
+                        <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider">High-Speed Processing</span>
+                        <h3 class="text-xl font-bold text-white">Xilinx Zynq FPGA HDL Firmware</h3>
+                        <p class="text-sm text-slate-300">
+                            Authored high-level HDL firmware for Xilinx Zynq system-on-chip architectures. Implemented real-time digital signal processing blocks, high-speed data routing pipelines, and low-level Linux kernel driver integration written in <strong>C</strong> via <strong>JTAG</strong> debugging interfaces.
+                        </p>
+                    </div>
+                </div>
             </section>
 
-            <section class="p-6 bg-slate-900 rounded-2xl border border-slate-800">
-                <h2 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-gears text-accent"></i> Automated Physical Testing & Scripting
-                </h2>
-                <p class="mb-4">
-                    To satisfy stringent customer specifications and aerospace standards, manual testing is insufficient. I built robust test infrastructure:
-                </p>
-                <ul class="list-disc list-inside space-y-2 text-sm text-slate-300">
-                    <li>Created automated physical testing capabilities driven by customer specifications utilizing <strong>COSMOS serial interfaces</strong>.</li>
-                    <li>Wrote extensive test APIs and networking logic using <strong>Python socket programming</strong>.</li>
+            <!-- Section: Automated Physical Testing & Scripting with Graphic -->
+            <section class="p-6 bg-slate-900 rounded-2xl border border-slate-800 space-y-6">
+                <div>
+                    <span class="text-xs font-mono text-accent uppercase tracking-wider">Hardware-in-the-Loop Test Infrastructure</span>
+                    <h2 class="text-2xl font-bold text-white mt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-gears text-accent"></i> Automated Physical Testing & Test Rig Schematic
+                    </h2>
+                    <p class="text-sm text-slate-300 mt-2">
+                        To satisfy stringent customer specifications and aerospace standards, manual testing is insufficient. I architected automated test infrastructure and calibration routines driven by custom COSMOS command interfaces and Python automation pipelines.
+                    </p>
+                </div>
+
+                <!-- Test Rig Diagram Image Card -->
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 shadow-xl">
+                    <div class="relative rounded-lg overflow-hidden border border-slate-700 bg-slate-900 group">
+                        <!-- Replace 'assets/test-rig-schematic.jpg' with your saved graphic image filename -->
+                        <img src="../assets/test-rig-schematic.jpg" alt="Modular Nanocom SDR Automated Physical Test Rig Schematic" class="w-full h-auto object-contain max-h-[500px]">
+                        
+                        <!-- Overlay Link to open full image in a new tab -->
+                        <a href="../assets/test-rig-schematic.jpg" target="_blank" class="absolute bottom-3 right-3 bg-slate-900/90 hover:bg-accent text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 shadow-lg backdrop-blur-md transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> View Full Diagram
+                        </a>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2.5 text-center italic font-mono">
+                        Figure: Automated Physical Test Rig System Architecture, Calibration Sequence & COSMOS Automation Pipeline.
+                    </p>
+                </div>
+
+                <!-- Technical Breakdown Bullet Points -->
+                <ul class="list-disc list-inside space-y-2 text-sm text-slate-300 pt-2 border-t border-slate-800">
+                    <li>Created automated physical testing capabilities driven by customer specifications utilizing <strong>COSMOS serial interfaces</strong> and <strong>VNA Power/Rig calibrations</strong>.</li>
+                    <li>Automated temperature-swept and power-swept calibration algorithms in 0.25 dB steps using <strong>Python socket programming</strong> and signal generator control.</li>
                     <li>Authored high-level <strong>Bash scripts</strong> and <strong>Ruby</strong> automation scripts to streamline radio calibration and environmental stress testing pipelines.</li>
                 </ul>
             </section>
 
-            <section class="p-6 bg-slate-900 rounded-2xl border border-slate-800">
-                <h2 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-chart-line text-accent"></i> Commercial Impact
+            <!-- Section: Commercial Impact & Press Coverage -->
+            <section class="p-6 bg-slate-900 rounded-2xl border border-slate-800 space-y-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-accent"></i> Commercial Impact & On-Orbit Success
                 </h2>
                 <p class="text-sm text-slate-300">
                     By contributing directly to the full development cycle of modular Nanocom SDRs, the engineering team delivered flexible, resilient communications hardware that directly enabled over <strong>$10 million in new contracts signed</strong> with defense agencies and commercial satellite operators.
                 </p>
+                
+                <!-- External Press Link Card -->
+                <div class="mt-4 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-950 p-4 rounded-xl border border-slate-800/80">
+                    <div>
+                        <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider">Industry News</span>
+                        <h4 class="font-bold text-white text-sm mt-0.5">Space Micro's SDRs Perform Successfully in MDA's CubeSat Networked Communications Experiment</h4>
+                        <p class="text-xs text-slate-400 mt-1">Read coverage on SatNow regarding operational flight performance.</p>
+                    </div>
+                    <a href="https://www.satnow.com/news/details/86-space-micro-s-sdrs-perform-successfully-in-mda-s-cubesat-networked-communications-experiment" target="_blank" class="inline-flex items-center gap-1.5 bg-accent hover:bg-blue-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition whitespace-nowrap">
+                        Read Article <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
             </section>
 
         </div>
