@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Frequency Oersted Lines for Spin Manipulation | Mark-Yves Gaunin</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b0f19',
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-accent selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/75 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../index.html" class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span> Mark-Yves Gaunin
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="../index.html#about" class="hover:text-accent transition">About Me</a>
+                <a href="../index.html#projects" class="hover:text-accent transition">Projects</a>
+                <a href="../index.html#publications" class="hover:text-accent transition">Publications</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:mygaunin@gmail.com" class="text-slate-300 hover:text-accent transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-github text-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 max-w-4xl mx-auto px-6">
+        
+        <!-- Breadcrumb & Back Link -->
+        <div class="mb-8">
+            <a href="../index.html#projects" class="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline mb-4">
+                <i class="fa-solid fa-arrow-left"></i> Back to Projects
+            </a>
+            <span class="block text-xs font-mono text-emerald-400 uppercase tracking-widest mt-2">Ph.D. Research @ UMD / NIST</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mt-2">
+                High-Frequency Oersted Lines for Electron Spin Manipulation in Silicon Quantum Devices
+            </h1>
+            <p class="text-slate-400 text-sm mt-3 font-mono">
+                Published in Journal of Vacuum Science & Technology (JVST) B · Special Collection: EIPBN
+            </p>
+        </div>
+
+        <!-- DOI & Quick Link Bar -->
+        <div class="flex flex-wrap items-center gap-4 p-4 bg-slate-900 rounded-xl border border-slate-800 mb-12 text-sm">
+            <span class="text-slate-300 font-medium"><i class="fa-solid fa-file-pdf text-accent mr-2"></i> Reference Publication:</span>
+            <a href="https://doi.org/10.1116/6.0004051" target="_blank" class="text-accent hover:underline inline-flex items-center gap-1 font-mono text-xs bg-blue-500/10 px-3 py-1.5 rounded-lg border border-blue-500/20">
+                DOI: 10.1116/6.0004051 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+        </div>
+
+        <!-- Case Study Sections -->
+        <div class="space-y-12 text-slate-300 text-base leading-relaxed">
+            
+            <!-- Overview Section -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-atom text-accent"></i> Overview & Motivation
+                </h2>
+                <p>
+                    Coherent manipulation of electron spins is one of the central challenges in scaling silicon-based quantum computing architectures. Applying a static magnetic field (typically ~1.5 T) creates Zeeman energy splitting between spin-up and spin-down states. To drive coherent Rabi oscillations between these states, an oscillating electromagnetic field in the 10–60 GHz range (approximately 40 GHz for 1.5 T) must be delivered directly to the qubit structure operating inside millikelvin dilution refrigerators (&lt;300 mK).
+                </p>
+                <p>
+                    This project outlines a rigorous methodology for designing, modeling, fabricating, and testing coplanar waveguides (CPWs) and nanoscale electron spin resonance (ESR) / Oersted lines capable of transmitting high-frequency pulses with minimal insertion loss. Furthermore, we introduced a novel **Oersted-antenna design** that couples a symmetrical receiving antenna opposite the signal line to monitor electromagnetic field power directly at the device interface.
+                </p>
+            </section>
+
+            <!-- Figure / Model Preview -->
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                    <img src="../assets/project-quantum.png" alt="3D Model of ESR Line on Silicon Chip" class="w-full h-full object-cover opacity-90">
+                </div>
+                <p class="text-xs text-slate-400 text-center italic">
+                    Figure 1: Three-dimensional model of an ESR line on a silicon chip surface inducing an oscillating magnetic field ($B$) onto a buried quantum dot device located ~30 nm below the surface.
+                </p>
+            </div>
+
+            <!-- Finite Element Modeling & Simulation -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-microchip text-accent"></i> COMSOL Multiphysics Modeling
+                </h2>
+                <p>
+                    To achieve impedance matching ($Z_0 \approx 50\ \Omega$) and prevent signal reflections across the test setup, finite element simulations were conducted using <strong>COMSOL Multiphysics</strong>. The model simulated the full test assembly consisting of:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                    <li>A printed circuit board (PCB) fabricated on CLTE-AT Rogers dielectric material with gold-plated copper ground planes.</li>
+                    <li>Gold wire bonds interfacing the PCB coplanar waveguides to the silicon chip CPW pads.</li>
+                    <li>Transmission parameters ($S_{21}$) and reflection parameters ($S_{11}$) evaluated across the 34–46 GHz frequency span.</li>
+                </ul>
+                <p>
+                    Simulations successfully identified standing wave behaviors and cavity resonance ripples spaced by ~2 GHz, corresponding to a cavity length of $L \approx 4.3\text{ cm}$ matching the distance from the PCB SMP connectors to the wire-bonded chip edge.
+                </p>
+            </section>
+
+            <!-- Fabrication & Experimental Setup -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-flask text-accent"></i> Cleanroom Fabrication & Test Infrastructure
+                </h2>
+                <p>
+                    Test structures and Oersted-antenna devices were fabricated at the NIST NanoFab using standard photolithography and lift-off techniques:
+                </p>
+                <ol class="list-decimal pl-6 space-y-2 text-slate-300">
+                    <li><strong>Resist Stack:</strong> A bilayer resist comprising LOR 3A and S1813 was spun on undoped silicon wafers to ensure clean lift-off profiles.</li>
+                    <li><strong>Patterning:</strong> Exposure via a direct laser writer at a dose of $90\text{ mJ/cm}^2$, followed by development in MF 319 and oxygen plasma descum.</li>
+                    <li><strong>Metallization:</strong> E-beam evaporation of a 5 nm titanium adhesion layer followed by 150 nm of gold at an angle to prevent conformal sidewall coating.</li>
+                    <li><strong>Lift-Off:</strong> Immersion in Remover PG at 80 °C, rinsed in isopropyl alcohol and de-ionized water.</li>
+                </ol>
+                <p>
+                    The Oersted-antenna devices featured variable center gap spacings ranging from <strong>0.5 µm to 2.0 µm</strong>. The 0.5 µm gap represented the minimum reliable feature size achievable via optical photolithography.
+                </p>
+            </section>
+
+            <!-- Results & Impact -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-accent"></i> Key Results & Findings
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 space-y-2">
+                        <h3 class="font-bold text-white text-lg">Inversely Proportional Coupling</h3>
+                        <p class="text-sm text-slate-400">
+                            Measurements verified that magnetic field magnitude and transmitted power across the gap are inversely proportional to distance, showing optimal microwave transmittance for smaller 0.5 µm gap spacings.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 space-y-2">
+                        <h3 class="font-bold text-white text-lg">Millitesla Field Generation</h3>
+                        <p class="text-sm text-slate-400">
+                            At the 42 GHz operating point, normalized transmittance data corresponded to induced magnetic fields on the order of several millitesla at the qubit interface, confirming sufficient power to drive high-fidelity Rabi oscillations.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collaborators & Citation -->
+            <section class="space-y-4 pt-6 border-t border-slate-900">
+                <h2 class="text-xl font-bold text-white">Project Credits & Authorship</h2>
+                <p class="text-sm text-slate-400">
+                    <strong>Authors:</strong> Mark-Yves Gaunin (Lead Data Curation, Software, Writing), Pradeep Namboodiri, Alessandro Restelli, Ranjit Kashid, Xiqiao Wang, Fan Fei, Brian Courts, Utsav, Vijith Kamalon Pulikodan, Jonathan Wyrick, and Richard Silver.
+                </p>
+                <p class="text-sm text-slate-400">
+                    <strong>Affiliations:</strong> National Institute of Standards and Technology (NIST) Physical Measurement Laboratory; Joint Quantum Institute (JQI) & Department of Electrical and Computer Engineering, University of Maryland (UMD); C-MET India; Rigetti Computing.
+                </p>
+            </section>
+
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="mt-16 pt-8 border-t border-slate-900 flex justify-between items-center">
+            <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+            <a href="stm-automation.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                Next Case Study: STM Automation <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p>© 2026 Mark-Yves Gaunin. Built for GitHub Pages.</p>
+            <div class="flex items-center space-x-6 text-lg">
+                <a href="mailto:mygaunin@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

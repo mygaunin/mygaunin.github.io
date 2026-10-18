@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated STM Hydrogen Lithography | Mark-Yves Gaunin</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b0f19',
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-accent selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/75 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../index.html" class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span> Mark-Yves Gaunin
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="../index.html#about" class="hover:text-accent transition">About Me</a>
+                <a href="../index.html#projects" class="hover:text-accent transition">Projects</a>
+                <a href="../index.html#publications" class="hover:text-accent transition">Publications</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:mygaunin@gmail.com" class="text-slate-300 hover:text-accent transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-github text-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 max-w-4xl mx-auto px-6">
+        
+        <!-- Breadcrumb & Back Link -->
+        <div class="mb-8">
+            <a href="../index.html#projects" class="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline mb-4">
+                <i class="fa-solid fa-arrow-left"></i> Back to Projects
+            </a>
+            <span class="block text-xs font-mono text-purple-400 uppercase tracking-widest mt-2">Machine Learning & Computer Vision Research @ NIST / UMD</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mt-2">
+                Automating Lithography for STM Based Donor Placement in Silicon
+            </h1>
+            <p class="text-slate-400 text-sm mt-3 font-mono">
+                Open-Source Atom Based Device (ABD) Navigator Platform & Closed-Loop Automation
+            </p>
+        </div>
+
+        <!-- Quick Info Bar -->
+        <div class="flex flex-wrap items-center gap-4 p-4 bg-slate-900 rounded-xl border border-slate-800 mb-12 text-sm">
+            <span class="text-slate-300 font-medium"><i class="fa-solid fa-code text-accent mr-2"></i> Technology Stack:</span>
+            <span class="text-xs font-mono bg-purple-500/10 text-purple-300 px-3 py-1.5 rounded-lg border border-purple-500/20">Python / TensorFlow</span>
+            <span class="text-xs font-mono bg-blue-500/10 text-blue-300 px-3 py-1.5 rounded-lg border border-blue-500/20">OpenCV / Computer Vision</span>
+            <span class="text-xs font-mono bg-emerald-500/10 text-emerald-300 px-3 py-1.5 rounded-lg border border-emerald-500/20">Scienta Omicron Matrix API</span>
+        </div>
+
+        <!-- Case Study Sections -->
+        <div class="space-y-12 text-slate-300 text-base leading-relaxed">
+            
+            <!-- Overview Section -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-microchip text-accent"></i> Overview & Motivation
+                </h2>
+                <p>
+                    Scanning tunneling microscope (STM) hydrogen de-passivation lithography (HDpL) provides an unparalleled solid-state platform for atomic-scale quantum computing and analog quantum simulation. By selectively removing hydrogen atoms from a passivated silicon surface in ultra-high vacuum (UHV) and dosing with precursor gases like phosphine, researchers can fabricate atomically precise donor devices such as single electron transistors (SETs).
+                </p>
+                <p>
+                    However, manual operation limits throughput and reproducibility. To make HDpL accessible and scalable, we developed an open-source graphical user interface (GUI) platform and application programming interface (API)—termed the <strong>Atom Based Device (ABD) Navigator</strong>—to orchestrate remote STM operation, coordinate navigation, and execute automated closed-loop fabrication.
+                </p>
+            </section>
+
+            <!-- Figure 1 Preview -->
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                    <img src="../assets/project-stm.jpg" alt="STM Automation Pipeline Overview" class="w-full h-full object-cover opacity-90">
+                </div>
+                <p class="text-xs text-slate-400 text-center italic">
+                    Figure 1: High-level overview of the closed-loop automation workflow: preset scan region definition, STM imaging, ROI segmentation, lithography classification, error analysis, tip creep correction, and automated tip conditioning.
+                </p>
+            </div>
+
+            <!-- ABD Navigator Architecture -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-map text-accent"></i> ABD Navigator Software Platform
+                </h2>
+                <p>
+                    The ABD Navigator operates as a Google-maps-like interface where scanning probe images, optical references, and GDSII design layers are aligned and managed. Communicating via the ABD Controller API (interfacing with Scienta Omicron's Matrix controller), the software implements hierarchical control layers:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                    <li><strong>Image Flattening & Leveling:</strong> Eliminates macroscopic sample tilt by applying first-order planar background subtraction and cumulative line-by-line median leveling to suppress horizontal line-stripe noise.</li>
+                    <li><strong>Scan & Litho Raster Layers:</strong> Manages preset scan windows, pixel densities, tunneling current/bias, and tip writing speeds.</li>
+                    <li><strong>Control Group Layer:</strong> Uploads GDSII layouts (such as complex SET geometries) and initiates the automated <code>executeAll</code> protocol.</li>
+                </ul>
+            </section>
+
+            <!-- Automated Tip Quality & CNN Classifier -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-brain text-accent"></i> Automated Tip Quality Classification & Conditioning
+                </h2>
+                <p>
+                    An atomically sharp tungsten tip is vital for resolving dangling bonds and patterning precise features. To eliminate operator-dependent tip evaluation, we trained a custom convolutional neural network (CNN) to classify positive-bias STM dangling-bond images as either <strong>"sharp"</strong> or <strong>"dull"</strong>.
+                </p>
+                <p>
+                    The sequential CNN processes $38 \times 38$ pixel crops through two 2D convolutional layers (30 and 40 filters with $5 \times 5$ kernels), a $2 \times 2$ max-pooling layer, and 128 ReLU-activated hidden units, achieving training and validation accuracies exceeding 95%. If tip quality falls below user-defined thresholds, the system automatically relocates the tip to a designated conditioning area, executing controlled voltage bias approaches until a sharp atomic state is recovered.
+                </p>
+            </section>
+
+            <!-- Edge Detection & Lithography Segmentation -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-eye text-accent"></i> Automated Edge Detection & Roughness Segmentation
+                </h2>
+                <p>
+                    Differentiating between natural monatomic silicon step edges and depassivated lithographic boundaries presents significant challenges. Our platform utilizes a modified Canny edge detection pipeline combined with adaptive hysteresis thresholding and post-Sobel filtering to ensure edge continuity.
+                </p>
+                <p>
+                    For scale-aware processing, a morphological White Top-Hat transform isolates dangling bonds from step edges. Terraces are segmented using 4-connected flood-fill operations, and a <strong>roughness density score ($\mathcal{R}_k$)</strong> evaluates the proportion of high-frequency edge pixels within each region to deterministically classify depassivated lithography.
+                </p>
+            </section>
+
+            <!-- Error Analysis and Tip Creep Correction -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-arrows-to-dot text-accent"></i> Real-Time Error Analysis & Tip Creep Correction
+                </h2>
+                <p>
+                    Piezo-actuator drift and hysteresis can cause spatial misalignment between ideal GDS templates and experimentally written features. The software computes spatial centroid projections and bounding-box extremum matches to derive real-time displacement vectors $(\Delta x, \Delta y)$ for closed-loop drift compensation.
+                </p>
+                <p>
+                    Parallelized parameter optimization algorithms evaluate multiple Gaussian blur, contrast, and roughness thresholds to maximize pattern fidelity, achieving pixel-by-pixel accuracies exceeding 95% when compared against ideal design templates.
+                </p>
+            </section>
+
+            <!-- SET Fabrication & Conclusion -->
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-accent"></i> Automated SET Fabrication & Future Outlook
+                </h2>
+                <p>
+                    Using this integrated software pipeline, full single electron transistor (SET) devices—featuring inner structures with 10 nm lead widths and outer fan-out leads up to 400 nm—were automatically fabricated without human-in-the-loop intervention. Electrical measurements confirm zero degradation in device performance compared to manually written counterparts.
+                </p>
+                <p>
+                    This open-source framework establishes a robust pathway toward industrial-scale nanofabrication, paving the way for future extensions into single-atom precision and large-scale analog quantum simulator (AQS) arrays.
+                </p>
+            </section>
+
+            <!-- Collaborators & Citation -->
+            <section class="space-y-4 pt-6 border-t border-slate-900">
+                <h2 class="text-xl font-bold text-white">Project Credits & Authorship</h2>
+                <p class="text-sm text-slate-400">
+                    <strong>Authors:</strong> Mark-Yves Gaunin, Fan Fei, Connor Lin, Utsav, Brian Courts, Vijith Kamalon Pulikodan, Pradeep Namboodiri, Richard Silver, and Jonathan Wyrick.
+                </p>
+                <p class="text-sm text-slate-400">
+                    <strong>Affiliations:</strong> National Institute of Standards and Technology (NIST) Physical Measurement Laboratory; Joint Quantum Institute (JQI) & Department of Electrical and Computer Engineering, University of Maryland (UMD).
+                </p>
+            </section>
+
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="mt-16 pt-8 border-t border-slate-900 flex justify-between items-center">
+            <a href="quantum-devices.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                <i class="fa-solid fa-arrow-left"></i> Previous Case Study: RF Engineering
+            </a>
+            <a href="nanocom-sdr.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                Next Case Study: Aerospace SDRs <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p>© 2026 Mark-Yves Gaunin. Built for GitHub Pages.</p>
+            <div class="flex items-center space-x-6 text-lg">
+                <a href="mailto:mygaunin@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
