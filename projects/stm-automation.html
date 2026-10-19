@@ -7,6 +7,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax CDN for rendering LaTeX math formulas cleanly -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -58,12 +61,19 @@
             </p>
         </div>
 
-        <!-- Quick Info Bar -->
-        <div class="flex flex-wrap items-center gap-4 p-4 bg-slate-900 rounded-xl border border-slate-800 mb-12 text-sm">
-            <span class="text-slate-300 font-medium"><i class="fa-solid fa-code text-accent mr-2"></i> Technology Stack:</span>
-            <span class="text-xs font-mono bg-purple-500/10 text-purple-300 px-3 py-1.5 rounded-lg border border-purple-500/20">Python / TensorFlow</span>
-            <span class="text-xs font-mono bg-blue-500/10 text-blue-300 px-3 py-1.5 rounded-lg border border-blue-500/20">OpenCV / Computer Vision</span>
-            <span class="text-xs font-mono bg-emerald-500/10 text-emerald-300 px-3 py-1.5 rounded-lg border border-emerald-500/20">Scienta Omicron Matrix API</span>
+        <!-- Quick Info Bar with ABD Navigator GitHub DOI Link -->
+        <div class="flex flex-wrap items-center justify-between gap-4 p-4 bg-slate-900 rounded-xl border border-slate-800 mb-12 text-sm">
+            <div class="flex flex-wrap items-center gap-3">
+                <span class="text-slate-300 font-medium"><i class="fa-solid fa-code text-accent mr-2"></i> Technology Stack:</span>
+                <span class="text-xs font-mono bg-purple-500/10 text-purple-300 px-3 py-1.5 rounded-lg border border-purple-500/20">Python / TensorFlow</span>
+                <span class="text-xs font-mono bg-blue-500/10 text-blue-300 px-3 py-1.5 rounded-lg border border-blue-500/20">OpenCV / Computer Vision</span>
+                <span class="text-xs font-mono bg-emerald-500/10 text-emerald-300 px-3 py-1.5 rounded-lg border border-emerald-500/20">Scienta Omicron Matrix API</span>
+            </div>
+            <div>
+                <a href="https://doi.org/10.18434/M32223" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-mono text-accent bg-blue-500/10 hover:bg-blue-500/20 px-3 py-1.5 rounded-lg border border-blue-500/30 transition">
+                    <i class="fa-brands fa-github"></i> ABD Navigator (DOI: 10.18434/M32223) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
         </div>
 
         <!-- Case Study Sections -->
@@ -85,7 +95,7 @@
             <!-- Figure 1 Preview -->
             <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
                 <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
-                    <img src="../assets/project-stm.jpg" alt="STM Automation Pipeline Overview" class="w-full h-full object-cover opacity-90">
+                    <img src="../assets/high-level.png" alt="STM Automation Pipeline Overview" class="w-full h-full object-cover opacity-90">
                 </div>
                 <p class="text-xs text-slate-400 text-center italic">
                     Figure 1: High-level overview of the closed-loop automation workflow: preset scan region definition, STM imaging, ROI segmentation, lithography classification, error analysis, tip creep correction, and automated tip conditioning.
@@ -93,7 +103,7 @@
             </div>
 
             <!-- ABD Navigator Architecture -->
-            <section class="space-y-4">
+            <section class="space-y-6">
                 <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
                     <i class="fa-solid fa-map text-accent"></i> ABD Navigator Software Platform
                 </h2>
@@ -105,10 +115,20 @@
                     <li><strong>Scan & Litho Raster Layers:</strong> Manages preset scan windows, pixel densities, tunneling current/bias, and tip writing speeds.</li>
                     <li><strong>Control Group Layer:</strong> Uploads GDSII layouts (such as complex SET geometries) and initiates the automated <code>executeAll</code> protocol.</li>
                 </ul>
+
+                <!-- Section Image (Scaled nicely with object-contain for tall/square UI screenshots) -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center p-4">
+                        <img src="../assets/abd-nav.png" alt="ABD Navigator Software Interface and Layer Alignment" class="w-full h-auto max-h-[500px] object-contain rounded-lg">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 2: User interface of the ABD Navigator showing multi-scale spatial coordinate mapping and GDSII design alignment.
+                    </p>
+                </div>
             </section>
 
             <!-- Automated Tip Quality & CNN Classifier -->
-            <section class="space-y-4">
+            <section class="space-y-6">
                 <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
                     <i class="fa-solid fa-brain text-accent"></i> Automated Tip Quality Classification & Conditioning
                 </h2>
@@ -116,12 +136,32 @@
                     An atomically sharp tungsten tip is vital for resolving dangling bonds and patterning precise features. To eliminate operator-dependent tip evaluation, we trained a custom convolutional neural network (CNN) to classify positive-bias STM dangling-bond images as either <strong>"sharp"</strong> or <strong>"dull"</strong>.
                 </p>
                 <p>
-                    The sequential CNN processes $38 \times 38$ pixel crops through two 2D convolutional layers (30 and 40 filters with $5 \times 5$ kernels), a $2 \times 2$ max-pooling layer, and 128 ReLU-activated hidden units, achieving training and validation accuracies exceeding 95%. If tip quality falls below user-defined thresholds, the system automatically relocates the tip to a designated conditioning area, executing controlled voltage bias approaches until a sharp atomic state is recovered.
+                    The sequential CNN processes \(38 \times 38\) pixel crops through two 2D convolutional layers (30 and 40 filters with \(5 \times 5\) kernels), a \(2 \times 2\) max-pooling layer, and 128 ReLU-activated hidden units, achieving training and validation accuracies exceeding 95%. If tip quality falls below user-defined thresholds, the system automatically relocates the tip to a designated conditioning area, executing controlled voltage bias approaches until a sharp atomic state is recovered.
                 </p>
+
+                <!-- CNN Performance Image -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                        <img src="../assets/cnn-performance.png" alt="CNN Classification Training and Validation Accuracy/Loss Performance" class="w-full h-full object-contain bg-slate-950">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 3a: Training and validation accuracy and loss curves for the convolutional neural network tip classifier over 350 epochs.
+                    </p>
+                </div>
+
+                <!-- Tip Conditioning Sequence Image (Stacked full width for clean viewing) -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center p-2">
+                        <img src="../assets/tip-conditioning.png" alt="Automated Tip Conditioning Sequence from Dull to Sharp State" class="w-full h-auto object-contain rounded-lg">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 3b: Sequential automated tip conditioning progression transforming an initial dull tip state into a final sharp atomic imaging state.
+                    </p>
+                </div>
             </section>
 
             <!-- Edge Detection & Lithography Segmentation -->
-            <section class="space-y-4">
+            <section class="space-y-6">
                 <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
                     <i class="fa-solid fa-eye text-accent"></i> Automated Edge Detection & Roughness Segmentation
                 </h2>
@@ -129,25 +169,45 @@
                     Differentiating between natural monatomic silicon step edges and depassivated lithographic boundaries presents significant challenges. Our platform utilizes a modified Canny edge detection pipeline combined with adaptive hysteresis thresholding and post-Sobel filtering to ensure edge continuity.
                 </p>
                 <p>
-                    For scale-aware processing, a morphological White Top-Hat transform isolates dangling bonds from step edges. Terraces are segmented using 4-connected flood-fill operations, and a <strong>roughness density score ($\mathcal{R}_k$)</strong> evaluates the proportion of high-frequency edge pixels within each region to deterministically classify depassivated lithography.
+                    For scale-aware processing, a morphological White Top-Hat transform isolates dangling bonds from step edges. Terraces are segmented using 4-connected flood-fill operations, and a <strong>roughness density score (\(\mathcal{R}_k\))</strong> evaluates the proportion of high-frequency edge pixels within each region to deterministically classify depassivated lithography.
                 </p>
+
+                <!-- Section Image -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center p-4">
+                        <img src="../assets/detections.png" alt="Canny Edge Detection and White Top-Hat Transform Segmentation" class="w-full h-auto max-h-[500px] object-contain rounded-lg">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 4: Automated computer vision pipeline isolating monatomic silicon step edges and evaluating roughness density metrics.
+                    </p>
+                </div>
             </section>
 
             <!-- Error Analysis and Tip Creep Correction -->
-            <section class="space-y-4">
+            <section class="space-y-6">
                 <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
                     <i class="fa-solid fa-arrows-to-dot text-accent"></i> Real-Time Error Analysis & Tip Creep Correction
                 </h2>
                 <p>
-                    Piezo-actuator drift and hysteresis can cause spatial misalignment between ideal GDS templates and experimentally written features. The software computes spatial centroid projections and bounding-box extremum matches to derive real-time displacement vectors $(\Delta x, \Delta y)$ for closed-loop drift compensation.
+                    Piezo-actuator drift and hysteresis can cause spatial misalignment between ideal GDS templates and experimentally written features. The software computes spatial centroid projections and bounding-box extremum matches to derive real-time displacement vectors \((\Delta x, \Delta y)\) for closed-loop drift compensation.
                 </p>
                 <p>
                     Parallelized parameter optimization algorithms evaluate multiple Gaussian blur, contrast, and roughness thresholds to maximize pattern fidelity, achieving pixel-by-pixel accuracies exceeding 95% when compared against ideal design templates.
                 </p>
+
+                <!-- Section Image -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center p-4">
+                        <img src="../assets/creep-correction.png" alt="Real-Time Drift Compensation and Bounding-Box Centroid Matching" class="w-full h-auto max-h-[500px] object-contain rounded-lg">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 5: Closed-loop displacement vector correction compensating for piezo-actuator drift and thermal hysteresis during lithography.
+                    </p>
+                </div>
             </section>
 
             <!-- SET Fabrication & Conclusion -->
-            <section class="space-y-4">
+            <section class="space-y-6">
                 <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
                     <i class="fa-solid fa-circle-check text-accent"></i> Automated SET Fabrication & Future Outlook
                 </h2>
@@ -157,6 +217,26 @@
                 <p>
                     This open-source framework establishes a robust pathway toward industrial-scale nanofabrication, paving the way for future extensions into single-atom precision and large-scale analog quantum simulator (AQS) arrays.
                 </p>
+
+                <!-- Two Images Grid for Automated Fabrication Section -->
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                            <img src="../assets/automated-fab.png" alt="Successfully Fabricated Single Electron Transistors via STM Lithography" class="w-full h-full object-contain bg-slate-950">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center italic">
+                            Figure 6a: STM micrograph of successfully fabricated single electron transistor (SET) structures produced via fully automated lithography.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                            <img src="../assets/automated-fab-detections.png" alt="Automated Detections and GDSII Alignment on Fabricated SET" class="w-full h-full object-contain bg-slate-950">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center italic">
+                            Figure 6b: Automated computer vision detections overlay verifying precise alignment and feature geometry.
+                        </p>
+                    </div>
+                </div>
             </section>
 
             <!-- Collaborators & Citation -->

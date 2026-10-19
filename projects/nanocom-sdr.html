@@ -24,33 +24,48 @@
 
     <!-- Header / Navbar -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/70 backdrop-blur-md border-b border-slate-800/80">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="../index.html" class="font-bold text-sm text-slate-300 hover:text-white transition flex items-center gap-2">
-                <i class="fa-solid fa-arrow-left"></i> Back to Home
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../index.html" class="font-bold text-lg text-white tracking-tight flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span> Mark-Yves Gaunin
             </a>
-            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest font-mono">Aerospace Experience (Feb. 2021 – March 2024)</span>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="../index.html#about" class="hover:text-accent transition">About Me</a>
+                <a href="../index.html#projects" class="hover:text-accent transition">Projects</a>
+                <a href="../index.html#publications" class="hover:text-accent transition">Publications</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:mygaunin@gmail.com" class="text-slate-300 hover:text-accent transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="text-slate-300 hover:text-accent transition"><i class="fa-brands fa-github text-lg"></i></a>
+            </div>
         </div>
     </header>
 
     <!-- Main Project Content -->
     <main class="pt-32 pb-24 max-w-4xl mx-auto px-6">
         
-        <!-- Tagline & Header -->
-        <span class="inline-block py-1 px-3 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-emerald-500/20 font-mono">
-            From hardware design to orbital deployment
-        </span>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
-            Modular Nanocom Software Defined Radios (SDRs)
-        </h1>
+        <!-- Breadcrumb & Back Link -->
+        <div class="mb-8">
+            <a href="../index.html#projects" class="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline mb-4">
+                <i class="fa-solid fa-arrow-left"></i> Back to Projects
+            </a>
+            <span class="block text-xs font-mono text-emerald-400 uppercase tracking-widest mt-2">Aerospace Experience (Feb. 2021 – March 2024)</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mt-2">
+                Modular Nanocom Software Defined Radios (SDRs)
+            </h1>
+            <p class="text-slate-400 text-sm mt-3 font-mono">
+                From hardware design to orbital deployment · Voyager Technologies (Space Micro Inc.)
+            </p>
+        </div>
+
         <p class="text-lg text-slate-300 mb-8 font-light leading-relaxed">
             Engineered and tested flight-ready software-defined radios at Voyager Technologies (formerly Space Micro Inc.), contributing to modular architectures that secured over $10 million in new defense and commercial space contracts.
         </p>
 
-        <!-- Featured SDR Hardware Image (Placed near top) -->
-        <div class="mb-12 bg-slate-900 p-3 rounded-2xl border border-slate-800 shadow-2xl">
-            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-72 md:h-96">
-                <!-- Replace 'assets/nanocom-sdr-hardware.jpg' with your actual SDR photo file path -->
-                <img src="../assets/nanocom-sdr-hardware.jpg" alt="Modular Nanocom Software Defined Radio" class="w-full h-full object-cover">
+        <!-- Featured SDR Hardware Image (Scaled for mobile responsiveness) -->
+        <div class="mb-12 bg-slate-900 p-4 rounded-2xl border border-slate-800 shadow-2xl">
+            <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 flex items-center justify-center p-2">
+                <img src="../assets/nanocom-sdr-hardware.jpg" alt="Modular Nanocom Software Defined Radio" class="w-full h-auto max-h-[450px] object-contain rounded-lg">
             </div>
             <p class="text-xs text-slate-400 mt-3 text-center font-medium italic">
                 Modular Nanocom Software Defined Radio (SDR) hardware developed for small satellite architectures.
@@ -103,14 +118,14 @@
                             Developed robust software drivers for the TI MSP430 microcontroller family to manage critical housekeeping, power management states, and subsystem telemetry. Utilized low-level communication protocols including <strong>UART</strong> and <strong>Spy-Bi-Wire (SBW)</strong> for in-system programming and debugging.
                         </p>
                     </div>
-                    <div class="order-1 md:order-2 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-48">
+                    <div class="order-1 md:order-2 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-48 flex items-center justify-center">
                         <img src="../assets/msp430-hardware.jpg" alt="TI MSP430 Microcontroller Setup" class="w-full h-full object-cover">
                     </div>
                 </div>
 
                 <!-- Subsection: Xilinx Zynq FPGA -->
                 <div class="grid md:grid-cols-2 gap-6 bg-slate-900 p-6 rounded-2xl border border-slate-800 items-center">
-                    <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-48">
+                    <div class="rounded-xl overflow-hidden border border-slate-700 bg-slate-950 h-48 flex items-center justify-center">
                         <img src="../assets/fpga-architecture.jpg" alt="Xilinx Zynq FPGA Architecture" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-3">
@@ -137,11 +152,9 @@
 
                 <!-- Test Rig Diagram Image Card -->
                 <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 shadow-xl">
-                    <div class="relative rounded-lg overflow-hidden border border-slate-700 bg-slate-900 group">
-                        <!-- Replace 'assets/test-rig-schematic.jpg' with your saved graphic image filename -->
+                    <div class="relative rounded-lg overflow-hidden border border-slate-700 bg-slate-900 group flex items-center justify-center">
                         <img src="../assets/test-rig-schematic.jpg" alt="Modular Nanocom SDR Automated Physical Test Rig Schematic" class="w-full h-auto object-contain max-h-[500px]">
                         
-                        <!-- Overlay Link to open full image in a new tab -->
                         <a href="../assets/test-rig-schematic.jpg" target="_blank" class="absolute bottom-3 right-3 bg-slate-900/90 hover:bg-accent text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 shadow-lg backdrop-blur-md transition flex items-center gap-1.5">
                             <i class="fa-solid fa-magnifying-glass-plus"></i> View Full Diagram
                         </a>
@@ -182,11 +195,29 @@
             </section>
 
         </div>
+
+        <!-- Bottom Navigation: Previous Case Study & Back to Home -->
+        <div class="mt-16 pt-8 border-t border-slate-900 flex justify-between items-center">
+            <a href="stm-automation.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                <i class="fa-solid fa-arrow-left"></i> Previous Case Study: STM Automation
+            </a>
+            <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                Back to Home <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-8 text-center text-slate-500 text-sm">
-        <p>© 2026 Mark-Yves Gaunin · <a href="../index.html" class="text-accent hover:underline">Return to Portfolio</a></p>
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p>© 2026 Mark-Yves Gaunin. Built for GitHub Pages.</p>
+            <div class="flex items-center space-x-6 text-lg">
+                <a href="mailto:mygaunin@gmail.com" class="hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/mark-yves-gaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/mygaunin" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
     </footer>
 
 </body>

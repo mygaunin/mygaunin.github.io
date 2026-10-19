@@ -7,6 +7,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax CDN for rendering LaTeX math formulas cleanly -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -69,49 +72,136 @@
         <!-- Case Study Sections -->
         <div class="space-y-12 text-slate-300 text-base leading-relaxed">
             
-            <!-- Overview Section -->
-            <section class="space-y-4">
-                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-atom text-accent"></i> Overview & Motivation
-                </h2>
+            <!-- Tutorial / Beginner-Friendly Introduction: Qubits & Zeeman Splitting -->
+            <section class="space-y-6 bg-slate-900/80 p-8 rounded-2xl border border-slate-800 shadow-xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-accent">
+                        <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-mono text-accent uppercase tracking-wider">Tutorial Primer</span>
+                        <h2 class="text-2xl font-bold text-white">Understanding Qubits, Spin, and Zeeman Splitting</h2>
+                    </div>
+                </div>
                 <p>
-                    Coherent manipulation of electron spins is one of the central challenges in scaling silicon-based quantum computing architectures. Applying a static magnetic field (typically ~1.5 T) creates Zeeman energy splitting between spin-up and spin-down states. To drive coherent Rabi oscillations between these states, an oscillating electromagnetic field in the 10–60 GHz range (approximately 40 GHz for 1.5 T) must be delivered directly to the qubit structure operating inside millikelvin dilution refrigerators (&lt;300 mK).
+                    If you are new to quantum computing, here is the core intuition behind this research. While classical computers store information as bits that are strictly <strong>0 or 1</strong>, quantum computers use <strong>qubits</strong> (quantum bits) that can exist in superpositions:
                 </p>
+
+                <!-- LaTeX Bloch Sphere Equation Block -->
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center font-mono text-accent text-lg">
+                    \[ |\psi\rangle = \alpha |0\rangle + \beta |1\rangle \quad \text{where} \quad |\alpha|^2 + |\beta|^2 = 1 \]
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 my-4">
+                    <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
+                        <h3 class="font-bold text-white text-base flex items-center gap-2">
+                            <i class="fa-solid fa-circle-dot text-accent text-xs"></i> The Two-Level System
+                        </h3>
+                        <p class="text-sm text-slate-400">
+                            An electron spin acts like a tiny bar magnet that can point "up" (spin-up, state \( |0\rangle \)) or "down" (spin-down, state \( |1\rangle \)). In free space, these two states have the exact same energy, making them degenerate and impossible to selectively manipulate.
+                        </p>
+                    </div>
+                    <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
+                        <h3 class="font-bold text-white text-base flex items-center gap-2">
+                            <i class="fa-solid fa-magnet text-emerald-400 text-xs"></i> Zeeman Splitting
+                        </h3>
+                        <p class="text-sm text-slate-400">
+                            When we apply a static external magnetic field \( B_{\text{ext}} \approx 1.5\text{ T} \), it lifts this degeneracy by splitting the energy levels according to the Zeeman Hamiltonian:
+                        </p>
+                        <div class="text-center font-mono text-xs text-emerald-400 pt-1">
+                            \[ \Delta E = h f_0 = g \mu_B B_{\text{ext}} \]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloch Sphere Image Container -->
+                <div class="mt-8 bg-slate-950 p-4 rounded-xl border border-slate-800 text-center space-y-3">
+                    <div class="aspect-[16/9] rounded-lg overflow-hidden bg-slate-900 relative border border-slate-800 flex items-center justify-center">
+                        <img src="../assets/bloch-sphere-qubit.jpg" alt="Bloch Sphere Representation of an Electron Spin Qubit" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-xs text-slate-400 italic">
+                        Figure 1: Geometric representation of a single electron spin qubit on the Bloch Sphere. The state vector \( |\psi\rangle \) is navigated using oscillating microwave pulses.
+                    </p>
+                </div>
+
                 <p>
-                    This project outlines a rigorous methodology for designing, modeling, fabricating, and testing coplanar waveguides (CPWs) and nanoscale electron spin resonance (ESR) / Oersted lines capable of transmitting high-frequency pulses with minimal insertion loss. Furthermore, we introduced a novel **Oersted-antenna design** that couples a symmetrical receiving antenna opposite the signal line to monitor electromagnetic field power directly at the device interface.
+                    Once the energy levels are split, we can selectively flip the electron spin between 0 and 1 by broadcasting a precisely tuned microwave pulse at the resonance frequency \( f_0 \approx 40\text{ GHz} \). Delivering these ultra-high-frequency microwave signals directly to microscopic quantum dots without losing power or generating excess thermal noise is the central engineering challenge this project solves!
                 </p>
             </section>
 
-            <!-- Figure / Model Preview -->
-            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-                <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
-                    <img src="../assets/project-quantum.png" alt="3D Model of ESR Line on Silicon Chip" class="w-full h-full object-cover opacity-90">
-                </div>
-                <p class="text-xs text-slate-400 text-center italic">
-                    Figure 1: Three-dimensional model of an ESR line on a silicon chip surface inducing an oscillating magnetic field ($B$) onto a buried quantum dot device located ~30 nm below the surface.
+            <!-- Overview Section -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-atom text-accent"></i> Project Motivation & Engineering Goals
+                </h2>
+                <p>
+                    Coherent manipulation of electron spins is one of the central challenges in scaling silicon-based quantum computing architectures. Operating inside millikelvin dilution refrigerators (\(T < 300\text{ mK}\)), qubits require ultra-clean microwave delivery structures.
                 </p>
-            </div>
+                <p>
+                    This project outlines a rigorous methodology for designing, modeling, fabricating, and testing coplanar waveguides (CPWs) and nanoscale electron spin resonance (ESR) / Oersted lines capable of transmitting high-frequency pulses with minimal insertion loss. Furthermore, we introduced a novel <strong>Oersted-antenna design</strong> that couples a symmetrical receiving antenna opposite the signal line to monitor electromagnetic field power directly at the device interface.
+                </p>
 
-            <!-- Finite Element Modeling & Simulation -->
-            <section class="space-y-4">
+                <!-- Project Motivation / Title Graphic -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                        <img src="../assets/project-quantum.png" alt="3D Schematic of Oersted Antenna and Silicon Encapsulation" class="w-full h-full object-contain bg-slate-950">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 2: Three-dimensional conceptual architecture showing the microwave coplanar waveguide and Oersted antenna delivering an oscillating magnetic field (\(B\)) to an encapsulated silicon quantum device.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Finite Element Modeling & Simulation (COMSOL) -->
+            <section class="space-y-6">
                 <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
                     <i class="fa-solid fa-microchip text-accent"></i> COMSOL Multiphysics Modeling
                 </h2>
                 <p>
-                    To achieve impedance matching ($Z_0 \approx 50\ \Omega$) and prevent signal reflections across the test setup, finite element simulations were conducted using <strong>COMSOL Multiphysics</strong>. The model simulated the full test assembly consisting of:
+                    To achieve impedance matching (\(Z_0 \approx 50\ \Omega\)) and prevent signal reflections across the test setup, finite element simulations were conducted using <strong>COMSOL Multiphysics</strong>. The model simulated the full test assembly consisting of:
                 </p>
                 <ul class="list-disc pl-6 space-y-2 text-slate-300">
                     <li>A printed circuit board (PCB) fabricated on CLTE-AT Rogers dielectric material with gold-plated copper ground planes.</li>
                     <li>Gold wire bonds interfacing the PCB coplanar waveguides to the silicon chip CPW pads.</li>
-                    <li>Transmission parameters ($S_{21}$) and reflection parameters ($S_{11}$) evaluated across the 34–46 GHz frequency span.</li>
+                    <li>Transmission parameters (\(S_{21}\)) and reflection parameters (\(S_{11}\)) evaluated across the 34–46 GHz frequency span.</li>
                 </ul>
                 <p>
-                    Simulations successfully identified standing wave behaviors and cavity resonance ripples spaced by ~2 GHz, corresponding to a cavity length of $L \approx 4.3\text{ cm}$ matching the distance from the PCB SMP connectors to the wire-bonded chip edge.
+                    Simulations successfully identified standing wave behaviors and cavity resonance ripples spaced by \(\Delta f \approx 2\text{ GHz}\), corresponding to a cavity length of \(L \approx 4.3\text{ cm}\) matching the distance from the PCB SMP connectors to the wire-bonded chip edge.
                 </p>
+
+                <!-- COMSOL Models Grid -->
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                            <img src="../assets/comsol-model.png" alt="3D COMSOL Geometry Model" class="w-full h-full object-cover opacity-90">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center italic">
+                            Figure 3a: 3D CAD and COMSOL geometry layout showing coplanar waveguides and wire-bonded chip assembly.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                            <img src="../assets/electricField-comsol.png" alt="COMSOL Electric Field Distribution" class="w-full h-full object-cover opacity-90">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center italic">
+                            Figure 3b: Electric field distribution and magnitude map (\(V/m\)) simulated across the transmission line structure.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Added Modeled Magnetic Field & Antenna Layout Image Container -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="aspect-[4/3] max-w-xl mx-auto rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                        <img src="../assets/oersted-antenna-model.png" alt="Oersted Antenna Layout and Modeled Magnetic Field Simulation" class="w-full h-full object-contain bg-slate-950">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 3c: (a) Detailed layout of the 0.5 µm gap Oersted signal line and receiving antenna. (b) Finite-element COMSOL simulation of the induced oscillating magnetic field distribution (Tesla) across the antenna gap.
+                    </p>
+                </div>
             </section>
 
-            <!-- Fabrication & Experimental Setup -->
-            <section class="space-y-4">
+            <!-- Cleanroom Fabrication & Test Infrastructure -->
+            <section class="space-y-6">
                 <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
                     <i class="fa-solid fa-flask text-accent"></i> Cleanroom Fabrication & Test Infrastructure
                 </h2>
@@ -120,13 +210,67 @@
                 </p>
                 <ol class="list-decimal pl-6 space-y-2 text-slate-300">
                     <li><strong>Resist Stack:</strong> A bilayer resist comprising LOR 3A and S1813 was spun on undoped silicon wafers to ensure clean lift-off profiles.</li>
-                    <li><strong>Patterning:</strong> Exposure via a direct laser writer at a dose of $90\text{ mJ/cm}^2$, followed by development in MF 319 and oxygen plasma descum.</li>
+                    <li><strong>Patterning:</strong> Exposure via a direct laser writer at a dose of \(90\text{ mJ/cm}^2\), followed by development in MF 319 and oxygen plasma descum.</li>
                     <li><strong>Metallization:</strong> E-beam evaporation of a 5 nm titanium adhesion layer followed by 150 nm of gold at an angle to prevent conformal sidewall coating.</li>
                     <li><strong>Lift-Off:</strong> Immersion in Remover PG at 80 °C, rinsed in isopropyl alcohol and de-ionized water.</li>
                 </ol>
                 <p>
                     The Oersted-antenna devices featured variable center gap spacings ranging from <strong>0.5 µm to 2.0 µm</strong>. The 0.5 µm gap represented the minimum reliable feature size achievable via optical photolithography.
                 </p>
+
+                <!-- Single Fabrication Figure Container -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                        <img src="../assets/pcb-chip.png" alt="PCB and Chip Packaging Micrograph" class="w-full h-full object-contain bg-slate-950">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">
+                        Figure 4: Packaged PCB carrier board, optical micrograph of silicon chip wire-bond interconnects, and zoomed-in view of the 0.5 µm gap Oersted antenna.
+                    </p>
+                </div>
+            </section>
+
+            <!-- S-Parameter Results & RF Analysis -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-accent"></i> S-Parameter Results & RF Analysis
+                </h2>
+                <p>
+                    In high-frequency RF engineering, performance is evaluated using scattering parameters:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-mono text-accent text-sm font-bold">\(S_{11}\) (Reflection Coefficient)</span>
+                        <p class="text-xs text-slate-400">
+                            Measures how much microwave power bounces back from the input port. A deep dip in \(S_{11}\) (below -15 dB) indicates excellent impedance matching where almost all energy enters the device without reflecting.
+                        </p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+                        <span class="font-mono text-emerald-400 text-sm font-bold">\(S_{21}\) (Transmission Coefficient)</span>
+                        <p class="text-xs text-slate-400">
+                            Measures how much power successfully travels through the transmission line to the output or qubit antenna. High \(S_{21}\) values signify low insertion loss across the 40 GHz operational window.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Unnormalized & Normalized S-Parameter Results Grid -->
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                            <img src="../assets/unnormalized-oersted-antenna-results.png" alt="Unnormalized Oersted Antenna S-Parameter Results" class="w-full h-full object-contain bg-slate-950">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center italic">
+                            Figure 5a: Unnormalized measured transmission power (dB) across frequency for 0.5 µm, 1 µm, and 2 µm gap structures alongside PCB reference lines.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-slate-950 relative border border-slate-800 flex items-center justify-center">
+                            <img src="../assets/normalized-oersted-antenna-results.png" alt="Normalized Oersted Antenna S-Parameter Results" class="w-full h-full object-contain bg-slate-950">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center italic">
+                            Figure 5b: Normalized transmission power (dB) highlighting direct gap-dependent coupling efficiency from 34 to 44 GHz.
+                        </p>
+                    </div>
+                </div>
             </section>
 
             <!-- Results & Impact -->
@@ -136,18 +280,37 @@
                 </h2>
                 <div class="grid md:grid-cols-2 gap-6 pt-2">
                     <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 space-y-2">
-                        <h3 class="font-bold text-white text-lg">Inversely Proportional Coupling</h3>
+                        <h3 class="font-bold text-white text-lg">Correlation of Simulations and Measured Transmittance</h3>
                         <p class="text-sm text-slate-400">
-                            Measurements verified that magnetic field magnitude and transmitted power across the gap are inversely proportional to distance, showing optimal microwave transmittance for smaller 0.5 µm gap spacings.
+                            A major finding of this work is the successful correlation between electromagnetic finite-element magnetic field simulations and fabricated/measured transmittance values across the oersted-antenna line, providing robust experimental validation.
                         </p>
                     </div>
                     <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 space-y-2">
-                        <h3 class="font-bold text-white text-lg">Millitesla Field Generation</h3>
+                        <h3 class="font-bold text-white text-lg">Optimized Design & Placement for Spin Control</h3>
                         <p class="text-sm text-slate-400">
-                            At the 42 GHz operating point, normalized transmittance data corresponded to induced magnetic fields on the order of several millitesla at the qubit interface, confirming sufficient power to drive high-fidelity Rabi oscillations.
+                            We established a reliable methodology to optimize the design and physical placement of the ESR antenna relative to our qubit structure, maximizing local oscillating magnetic fields to drive high-fidelity spin manipulations.
                         </p>
                     </div>
                 </div>
+            </section>
+
+            <!-- Broader Context & Next Steps -->
+            <section class="space-y-6 bg-slate-900/80 p-8 rounded-2xl border border-slate-800 shadow-xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                        <i class="fa-solid fa-forward-step text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">Future Outlook</span>
+                        <h2 class="text-2xl font-bold text-white">Next Steps: ESR Spectra & Spin Qubit Control</h2>
+                    </div>
+                </div>
+                <p>
+                    Building upon these modeled and validated high-frequency Oersted lines, the next major milestone is to integrate these structures with silicon quantum dot devices operating inside millikelvin dilution refrigerators. 
+                </p>
+                <p>
+                    By coupling the microwave delivery lines directly to single-donor qubits, the immediate next steps involve measuring full electron spin resonance (ESR) spectra and demonstrating coherent, addressable manipulation and control of individual spin qubits. This advances the architecture toward scalable, fault-tolerant silicon quantum processors.
+                </p>
             </section>
 
             <!-- Collaborators & Citation -->
