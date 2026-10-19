@@ -404,5 +404,19 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.querySelector("video");
+            if (video) {
+                video.play().catch(error => {
+                    // Fallback: play on first user touch/scroll if blocked by browser policy
+                    document.addEventListener("touchstart", function() {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
